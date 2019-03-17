@@ -4,25 +4,31 @@
 #
 Name     : R-TSP
 Version  : 1.1.6
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/TSP_1.1-6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/TSP_1.1-6.tar.gz
 Summary  : Traveling Salesperson Problem (TSP)
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-TSP-lib
+Requires: R-TSP-lib = %{version}-%{release}
+Requires: R-assertthat
+Requires: R-cli
 Requires: R-foreach
 Requires: R-maps
+Requires: R-withr
+BuildRequires : R-assertthat
+BuildRequires : R-cli
 BuildRequires : R-foreach
 BuildRequires : R-maps
-BuildRequires : clr-R-helpers
+BuildRequires : R-withr
+BuildRequires : buildreq-R
 
 %description
-salesperson problem (also traveling salesman problem; TSP).
-    The package provides some simple algorithms and
-    an interface to the Concorde TSP solver and its implementation of the
-    Chained-Lin-Kernighan heuristic. The code for Concorde
-    itself is not included in the package and has to be obtained separately.
+# TSP - Traveling Salesperson Problem - R package
+[![CRAN version](http://www.r-pkg.org/badges/version/TSP)](https://cran.r-project.org/package=TSP)
+[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/TSP)](https://cran.r-project.org/package=TSP)
+[![Travis-CI Build Status](https://travis-ci.org/mhahsler/TSP.svg?branch=master)](https://travis-ci.org/mhahsler/TSP)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/mhahsler/TSP?branch=master&svg=true)](https://ci.appveyor.com/project/mhahsler/TSP)
 
 %package lib
 Summary: lib components for the R-TSP package.
@@ -40,11 +46,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1525182619
+export SOURCE_DATE_EPOCH=1552842055
 
 %install
+export SOURCE_DATE_EPOCH=1552842055
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1525182619
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -79,8 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library TSP|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  TSP || :
 
 
 %files
@@ -116,7 +121,11 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/TSP/help/paths.rds
 /usr/lib64/R/library/TSP/html/00Index.html
 /usr/lib64/R/library/TSP/html/R.css
-/usr/lib64/R/library/TSP/libs/symbols.rds
+/usr/lib64/R/library/TSP/tests/testthat.R
+/usr/lib64/R/library/TSP/tests/testthat/test-ETSP.R
+/usr/lib64/R/library/TSP/tests/testthat/test-TSPLIB.R
+/usr/lib64/R/library/TSP/tests/testthat/test-insert_cut_etc.R
+/usr/lib64/R/library/TSP/tests/testthat/test-solve_TSP.R
 
 %files lib
 %defattr(-,root,root,-)
