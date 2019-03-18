@@ -3,4 +3,6 @@ R-assertthat
 R-cli
 R-foreach
 R-maps
+R-maptools
+R-sp
 R-withr
