@@ -4,18 +4,18 @@
 #
 Name     : R-TSP
 Version  : 1.1.6
-Release  : 20
+Release  : 21
 URL      : https://cran.r-project.org/src/contrib/TSP_1.1-6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/TSP_1.1-6.tar.gz
 Summary  : Traveling Salesperson Problem (TSP)
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-TSP-lib = %{version}-%{release}
-Requires: R-maptools
-Requires: R-sp
+Requires: R-iterators
 BuildRequires : R-assertthat
 BuildRequires : R-cli
 BuildRequires : R-foreach
+BuildRequires : R-iterators
 BuildRequires : R-maps
 BuildRequires : R-maptools
 BuildRequires : R-sp
@@ -45,10 +45,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552924572
+export SOURCE_DATE_EPOCH=1556469980
 
 %install
-export SOURCE_DATE_EPOCH=1552924572
+export SOURCE_DATE_EPOCH=1556469980
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -84,7 +84,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc  TSP || :
+R CMD check --no-manual --no-examples --no-codoc TSP || :
 
 
 %files
