@@ -1,9 +1,4 @@
-1.1.7
-R-assertthat
-R-cli
-R-foreach
-R-iterators
+1.1.8
 R-maps
 R-maptools
 R-sp
-R-withr
