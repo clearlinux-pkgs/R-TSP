@@ -4,7 +4,7 @@
 #
 Name     : R-TSP
 Version  : 1.1.10
-Release  : 31
+Release  : 32
 URL      : https://cran.r-project.org/src/contrib/TSP_1.1-10.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/TSP_1.1-10.tar.gz
 Summary  : Traveling Salesperson Problem (TSP)
@@ -22,11 +22,11 @@ BuildRequires : R-sp
 BuildRequires : buildreq-R
 
 %description
-# TSP - Traveling Salesperson Problem - R package
-[![CRAN version](http://www.r-pkg.org/badges/version/TSP)](https://cran.r-project.org/package=TSP)
-[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/TSP)](https://cran.r-project.org/package=TSP)
-[![Travis-CI Build Status](https://travis-ci.org/mhahsler/TSP.svg?branch=master)](https://travis-ci.org/mhahsler/TSP)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/mhahsler/TSP?branch=master&svg=true)](https://ci.appveyor.com/project/mhahsler/TSP)
+salesperson problem (also traveling salesman problem; TSP).
+    The package provides some simple algorithms and
+    an interface to the Concorde TSP solver and its implementation of the
+    Chained-Lin-Kernighan heuristic. The code for Concorde
+    itself is not included in the package and has to be obtained separately.
 
 %package lib
 Summary: lib components for the R-TSP package.
@@ -38,21 +38,22 @@ lib components for the R-TSP package.
 
 %prep
 %setup -q -c -n TSP
+cd %{_builddir}/TSP
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587171665
+export SOURCE_DATE_EPOCH=1589568712
 
 %install
-export SOURCE_DATE_EPOCH=1587171665
+export SOURCE_DATE_EPOCH=1589568712
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
