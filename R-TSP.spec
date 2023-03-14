@@ -4,7 +4,7 @@
 #
 Name     : R-TSP
 Version  : 1.2.3
-Release  : 55
+Release  : 56
 URL      : https://cran.r-project.org/src/contrib/TSP_1.2-3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/TSP_1.2-3.tar.gz
 Summary  : Traveling Salesperson Problem (TSP)
@@ -14,9 +14,6 @@ Requires: R-TSP-lib = %{version}-%{release}
 Requires: R-foreach
 BuildRequires : R-foreach
 BuildRequires : buildreq-R
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 salesperson problem (also traveling salesman problem; TSP).
@@ -42,10 +39,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1678472277
+export SOURCE_DATE_EPOCH=1678827362
 
 %install
-export SOURCE_DATE_EPOCH=1678472277
+export SOURCE_DATE_EPOCH=1678827362
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
