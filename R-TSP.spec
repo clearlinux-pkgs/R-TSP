@@ -5,7 +5,7 @@
 #
 Name     : R-TSP
 Version  : 1.2.4
-Release  : 61
+Release  : 62
 URL      : https://cran.r-project.org/src/contrib/TSP_1.2-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/TSP_1.2-4.tar.gz
 Summary  : Traveling Salesperson Problem (TSP)
