@@ -1,5 +1,5 @@
 PKG_NAME := R-TSP
-URL = https://cran.r-project.org/src/contrib/TSP_1.2-4.tar.gz
+URL = https://ftp.osuosl.org/pub/cran/src/contrib/TSP_1.2-5.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
